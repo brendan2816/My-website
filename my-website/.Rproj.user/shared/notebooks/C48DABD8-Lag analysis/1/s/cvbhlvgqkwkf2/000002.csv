@@ -1,0 +1,22 @@
+"0","```r
+relevant_team_lags <- function(team_abrev){
+  important_ACF_values <- data.frame()
+  team_temp_chart <- lag_data %>% ungroup() %>%
+    filter(TEAM_ABBREVIATION == team_abrev, !is.na(tot_deg_cent)) %>%
+    arrange(slugSeason, numberGameTeamSeason) %>%
+    as_tsibble(key = c(slugSeason, TEAM_ABBREVIATION), index = c(numberGameTeamSeason)) %>%
+    fill_gaps(.full = TRUE) %>%
+    ACF(tot_deg_cent) 
+      
+  counter = 1
+  for (i in 1:nrow(team_temp_chart[,4])) {
+    if(team_temp_chart[[i,4]] > .2 | team_temp_chart[[i,4]] < (-.2)) {
+      for (k in 1:ncol(team_temp_chart[1,])) {
+        important_ACF_values[counter,k] <- team_temp_chart[i,k]
+      }
+      counter = counter + 1
+    }
+  }
+  return(important_ACF_values)
+}
+```"

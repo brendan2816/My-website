@@ -1,0 +1,11 @@
+"0","```r
+team_lag_graphs <- function(team_abrev){
+  lag_data %>% ungroup() %>%
+  filter(TEAM_ABBREVIATION == team_abrev, !is.na(tot_deg_cent)) %>%
+  arrange(slugSeason, numberGameTeamSeason) %>%
+  as_tsibble(key = c(slugSeason, TEAM_ABBREVIATION), index = c(numberGameTeamSeason)) %>%
+  fill_gaps(.full = TRUE) %>%
+  ACF(tot_deg_cent) %>%
+  autoplot()
+}
+```"

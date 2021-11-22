@@ -1,0 +1,39 @@
+title: Brendan Diederich
+baseURL: https://example.com/
+theme: hugo-resume
+languageCode: en-us
+PygmentsCodeFences: yes
+PygmentsCodeFencesGuessSyntax: yes
+PygmentsStyle: monokai
+enableGitInfo: no
+params:
+  address: Athens, GA
+  email: brendan2816@gmail.com
+  favicon: /favicon.ico
+  firstName: Brendan
+  google:
+    analytics:
+      trackerID: XX-123446-01
+  handles:
+    - link: https://www.linkedin.com/in/brendan-diederich-93622721b/
+      name: LinkedIn
+    - link: https://github.com/brendan2816
+      name: GitHub
+    - link: https://msu.joinhandshake.com/users/8148546
+      name: Handshake
+  lastName: Diederich
+  phone: 571-439-5858
+  profileImage: img/TechChat.png
+  showEducation: yes
+  showExperience: yes
+  showOpenSource: no
+  showProjects: yes
+  showPublications: no
+  showQr: no
+  showSkills: yes
+outputs:
+  home:
+    - HTML
+    - JSON
+taxonomies:
+  tag: tags
